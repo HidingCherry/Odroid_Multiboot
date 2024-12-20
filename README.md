@@ -4,6 +4,10 @@ This is a modification of the original MultiBoot - main changes:
 - user needs to set a custom script in order to set MultiBoot back as 1st booting option
 - kernel and cmdline options are set by multiboot, not initrd/system or anything else
 
+TODO:
+- add custom script to place MultiBoot back (ready but not at hand)
+- modify bootup-script to allow arrows for selection
+
 THIS MODIFICATION IS A WORK IN PROGRESS
 =======================================
 
