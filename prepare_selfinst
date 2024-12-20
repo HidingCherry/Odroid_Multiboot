@@ -15,11 +15,13 @@ usage() {
 
 needed_packages=""
 
-_testpkg=$(dpkg -l | grep parted)
+#_testpkg=$(dpkg -l | grep parted)
+_testpkg="parted"
 if [ "${_testpkg}" = "" ]; then
     needed_packages="${needed_packages}parted "
 fi
-_testpkg=$(dpkg -l | grep dosfstools)
+#_testpkg=$(dpkg -l | grep dosfstools)
+_testpkg="dosfstools"
 if [ "${_testpkg}" = "" ]; then
     needed_packages="${needed_packages}dosfstools "
 fi
