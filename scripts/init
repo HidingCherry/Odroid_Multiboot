@@ -315,10 +315,10 @@ if [ "$O_BOARD" = "C2" ]; then
 	ODROID_ASYSTEMIMAGE="rootsystem.img"
 	BKP_PREFIX="C2"
 	if [ "${NUMCARDS}" = "2" ]; then
-		BOOT_CARDTYPE="EMMC"
+		BOOT_CARDTYPE="SD"
 		NUMCARDS="2"
 		OTHER_CARDDEV="1"
-		OTHER_CARDTYPE="SD"
+		OTHER_CARDTYPE="EMMC"
 	fi
 elif [ "$O_BOARD" = "C1" ]; then
 	ADATA_PART_ORIG="4"
@@ -716,7 +716,6 @@ os_detect() {
 	_menu_no=49
 	# Scan boot card first
 	_actmount="mnt1"
-	if [ -b /dev/disk/by-label/sduserdata ] || [ -b /dev/disk/by-label/emuserdata ]; then
 		get_menu_items
 		if [ "${NUMCARDS}" = "2" ]; then
 			_actmount="mnt2"
@@ -724,9 +723,6 @@ os_detect() {
 			get_menu_items
 		fi
 		[ ${_numos} -eq 0 ] && printf "\033[36m    \033[36m\033[1m!\033[22m  NO OS DETECTED\033[36m\n"
-	else
-		[ ${_numos} -eq 0 ] && printf "\033[36m    \033[36m\033[1m!\033[22m  NO MULTIBOOT CARD DETECTED\033[36m\n"
-	fi
 
 	printf "\n"
 	printf "    \033[36m\033[1mB\033[22m  Backup Android/Linux/OpenElec\033[36m\n"
