@@ -156,10 +156,10 @@ if [ ! "${_isimage}" = "yes" ]; then
     fi
     sleep 1
 
-    echo "Creating new filesystem on $sdcard ..."
+    echo "Creating new partition table on $sdcard ..."
     echo -e "o\nw" | fdisk ${sdcard} > /dev/null 2>&1
     sync
-    echo "  New filesystem created on SD card."
+    echo "  New partition table created on SD card."
     sleep 1
     partprobe -s ${sdcard} > /dev/null 2>&1
     if [ $? -ne 0 ]; then
@@ -187,6 +187,7 @@ if [ ! "${_isimage}" = "yes" ]; then
     if [ $? -ne 0 ]; then
 		image_error_exit "  ERROR formating installer partition."
     fi
+
     echo "  selfinst partition formated."
     sync
 
