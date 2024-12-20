@@ -591,26 +591,14 @@ get_menu_items() {
 			_oncard=" on ${OTHER_CARDTYPE}"
 		fi
 	fi
-	if [ -f /${_actmount}/${_ini_prefix}/boot.ini.android ]; then
-		get_descr "boot.ini.android" "Android"
-		set_menu_key "boot.ini.android"
+
+	for __BOOTINI in /${_actmount}/${_ini_prefix}/boot.ini*; do
+		__bootIniFilename=$(basename $__BOOTINI)
+
+		get_descr "${__bootIniFilename}" "${__bootIniFilename#boot.ini.}"
+		set_menu_key "${__bootIniFilename}"
 		printf "\033[36m    \033[32m\033[1m${_menu_key}\033[22m\033[36m  boot to \033[32m${_desc}\033[36m${_oncard}\n"
-	fi
-	if [ -f /${_actmount}/${_ini_prefix}/boot.ini.linux ]; then
-		get_descr "boot.ini.linux" "Linux"
-		set_menu_key "boot.ini.linux"
-		printf "\033[36m    \033[33m\033[1m${_menu_key}\033[22m\033[36m  boot to \033[33m${_desc}\033[36m${_oncard}\n"
-	fi
-	if [ -f /${_actmount}/${_ini_prefix}/boot.ini.oelec ]; then
-		get_descr "boot.ini.oelec" "OpenElec"
-		set_menu_key "boot.ini.oelec"
-		printf "\033[36m    \033[37m\033[1m${_menu_key}\033[22m\033[36m  boot to \033[37m${_desc}\033[36m${_oncard}\n"
-	fi
-	if [ -f /${_actmount}/${_ini_prefix}/boot.ini.linux2 ]; then
-		get_descr "boot.ini.linux2" "Linux #2"
-		set_menu_key "boot.ini.linux2"
-		printf "\033[36m    \033[33m\033[1m${_menu_key}\033[22m\033[36m  boot to \033[33m${_desc}\033[36m${_oncard}\n"
-	fi
+	done
 }
 #---------------------------------------------------------------------------------------------
 
