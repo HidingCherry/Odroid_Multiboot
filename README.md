@@ -1,3 +1,12 @@
+This is a modification of the original MultiBoot - main changes:
+- use partitions instead of directories
+- create a dynamic list
+- user needs to set a custom script in order to set MultiBoot back as 1st booting option
+- kernel and cmdline options are set by multiboot, not initrd/system or anything else
+
+THIS MODIFICATION IS A WORK IN PROGRESS
+=======================================
+
 MultiBoot menu and tools for Odroid C1, C2, XU3/XU4
 ===================================================
 
