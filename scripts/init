@@ -492,7 +492,7 @@ do_boot() {
 			fi
 		fi
 
-		if [ "${1}" = "boot.ini.android" ]; then
+		if [ "${1}" =~ "boot.ini.android" ]; then
 			# === mount destination android system partition to prepare android fstab ===
 			mkdir /mnt_a > /dev/null 2>&1
 			if [ "${change_drive}" = "yes" ]; then
