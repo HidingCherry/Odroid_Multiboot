@@ -594,6 +594,8 @@ get_menu_items() {
 
 	for __BOOTINI in /${_actmount}/${_ini_prefix}/boot.ini*; do
 		__bootIniFilename=$(basename $__BOOTINI)
+		### we need to sort out the multiboot directory with the multiboot kernel etc.
+		if [[ $__bootIniFilename = "boot.ini.multi" ]]; then continue; fi
 
 		get_descr "${__bootIniFilename}" "${__bootIniFilename#boot.ini.}"
 		set_menu_key "${__bootIniFilename}"
