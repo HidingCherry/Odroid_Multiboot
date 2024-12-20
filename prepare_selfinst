@@ -94,10 +94,10 @@ if [ -b $sdcard ]; then
     # we are working with block device
     # Test if requested drive is removable
     ISREMOVABLE=`udevadm info -a -n ${sdcard} | grep -o "ATTR{removable}==\"1\""`
-    if [ ! "${ISREMOVABLE}" = "ATTR{removable}==\"1\"" ] ; then
-	    printf "\033[31m\033[1m%s IS NOT REMOVABLE DRIVE !, Exiting.\033[37m\033[22m\n" "${sdcard}"
-	    exit 1
-    fi
+#    if [ ! "${ISREMOVABLE}" = "ATTR{removable}==\"1\"" ] ; then
+#	    printf "\033[31m\033[1m%s IS NOT REMOVABLE DRIVE !, Exiting.\033[37m\033[22m\n" "${sdcard}"
+#	    exit 1
+#	fi
 
     _sdok=`fdisk -l $sdcard  2> /dev/null | grep Disk`
     if [ "$_sdok" = "" ]; then
